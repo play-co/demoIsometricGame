@@ -276,13 +276,14 @@ exports = Class(GC.Application, function (supr) {
 		this._buildOptions.hide();
 		this._buttonsView.hide();
 		this._statusView.hide();
+		this._hintView.hide();
 	};
 
 	this.showOverlay = function () {
 		this._buildOptions.show();
 		this._buttonsView.show();
 		this._statusView.show();
-		this._hintView.style.visible = true;
+		this._hintView.show();
 	};
 
 	this.tick = function (dt) {
@@ -579,16 +580,16 @@ exports = Class(GC.Application, function (supr) {
 	};
 
 	this.onLoadGameSlot = function (index) {
-		this._isometric.clear();
-		this._isometric.show();
+		this._isometric.clear(true);
 
-		var success = false;
-		var str = localStorage.getItem('ROME_SWEET_ROME_SAVED_' + index)
+		var success;
+		var str = localStorage.getItem('ROME_SWEET_ROME_SAVED_' + index);
 		var data = null;
 		try {
 			data = JSON.parse(str);
 			success = true;
 		} catch (e) {
+			success = false;
 		}
 
 		if (success) {
@@ -602,9 +603,28 @@ exports = Class(GC.Application, function (supr) {
 		}
 
 		if (success) {
+			this._isometric.show();
 			this.showOverlay();
 		} else {
+			this._gameStarted = false;
+			LoadingView.get().style.visible = true;
 
+			this._loadErrorView = this._loadErrorView || new TextDialogView({
+				superview: this,
+				title: 'Error',
+				text: 'Failed to load level.',
+				width: 500,
+				modal: true,
+				buttons: [
+					{
+						title: 'Ok',
+						width: 160,
+						style: 'RED'
+					}
+				]
+			}).on('Hide', bind(this, 'onMainMenu'));
+
+			this._loadErrorView.show();
 		}
 	};
 

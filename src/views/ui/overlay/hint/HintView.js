@@ -310,4 +310,12 @@ exports = Class(View, function (supr) {
 	this.hideHistory = function () {
 		(this._mode === 1) && this.showMessages();
 	};
+
+	this.hide = function () {
+		this.style.visible = false;
+	};
+
+	this.show = function () {
+		this.style.visible = true;
+	};
 });

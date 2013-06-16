@@ -131,7 +131,7 @@ exports = Class(PathWalkerModel, function (supr) {
 		if (this._insertingPath) {
 			return DynamicModel.tickResult.CONTINUE;
 		}
-this._speed=0.2;
+
 		var result = supr(this, 'tick', arguments);
 
 		if (!this._onScreen) {

@@ -25,10 +25,12 @@ exports = Class(StaticModel, function (supr) {
 	this.tick = function (dt) {
 		var addedValue = this._addedValue;
 
-		if (addedValue.buildingColumn) {
-			this._canSpawn = true;
-		} else {
-			this._canSpawn = (this._modelsAwake.length < 1);
+		if (this.isComplete()) {
+			if (addedValue.buildingColumn) {
+				this._canSpawn = true;
+			} else {
+				this._canSpawn = (this._modelsAwake.length < 1);
+			}
 		}
 
 		return supr(this, 'tick', arguments);
