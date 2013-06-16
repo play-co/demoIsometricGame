@@ -1,0 +1,37 @@
+{
+	"appID": "361ba0403cd14216939ee847bc8baa8b",
+	"shortName": "demoTileGame",
+	"title": "Rome, Sweet Rome",
+	"studio": {
+		"name": "Game Closure",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"landscape"
+	],
+	"description": "",
+	"icon": "resources/icons/icon512.png",
+	"splash": {
+		"autoHide": true,
+		"universal": "resources/splash/splashLoading.png"
+	},
+	"android": {
+		"versionCode": 1,
+		"icons": {
+			"36": "resources/icons/android36.png",
+			"96": "resources/icons/android96.png"
+		}
+	},
+	"ios": {
+		"bundleID": "example.bundle",
+		"appleID": "12345678",
+		"version": "1.0.0",
+		"icons": {
+			"114": "resources/icons/ios114.png",
+			"144": "resources/icons/ios144.png",
+			"renderGloss": true
+		}
+	},
+	"sdkVersion": "release-0.1.21"
+}
