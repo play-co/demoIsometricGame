@@ -38,8 +38,8 @@ exports = Class(PathWalkerModel, function (supr) {
 		this._speedMin = -1;
 		this._speedMax = -1;
 
-		this._roadLeft = 0.5;//0.4;
-		this._roadRight = 0.5;//0.6;
+		this._roadLeft = 0.4;
+		this._roadRight = 0.6;
 
 		this._imageInfo = [
 			[{index: 0, flipX: false}, {index: 0, flipX: false}, {index: 0, flipX: true}],
