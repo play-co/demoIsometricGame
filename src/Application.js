@@ -81,9 +81,11 @@ exports = Class(GC.Application, function (supr) {
 			on('SelectionCount', bind(this, 'onSelectionCount')).
 			on('SelectItem', bind(this, 'onSelectItem')).
 			on('UnselectItem', bind(this, 'onUnselectItem')).
-			on('StaticModel', bind(this, 'onStaticModel')).
+			on('AddStaticModel', bind(this, 'onAddStaticModel')).
 			on('Edit', bind(this, 'onEdit')).
-			on('DynamicModel', bind(this, 'onDynamicModel'));
+			on('AddDynamicModel', bind(this, 'onAddDynamicModel')).
+			on('SleepDynamicModel', bind(this, 'onSleepDynamicModel')).
+			on('WakeupDynamicModel', bind(this, 'onWakeupDynamicModel'));
 
 		this._gridModel = this._isometric.getGridModel();
 
@@ -373,7 +375,7 @@ exports = Class(GC.Application, function (supr) {
 		}
 	};
 
-	this.onStaticModel = function (model) {
+	this.onAddStaticModel = function (model) {
 		model.getModelInfo && this._gameModel.addPeople(model.getModelInfo());
 		model.on('Changed', bind(this, 'onChanged'));
 		model.on('Message', bind(this, 'onMessage'));
@@ -740,7 +742,13 @@ exports = Class(GC.Application, function (supr) {
 		this._hintView && this._hintView.hint(text, color);
 	};
 
-	this.onDynamicModel = function (model) {
+	this.onAddDynamicModel = function (model) {
 		model.on('Message', bind(this, 'onMessage'));
+	};
+
+	this.onSleepDynamicModel = function (model) {
+	};
+
+	this.onWakeupDynamicModel = function (model) {
 	};
 });
