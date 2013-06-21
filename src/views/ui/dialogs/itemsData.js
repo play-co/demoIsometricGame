@@ -217,7 +217,7 @@ exports = [
 					{
 						ctor: 'ItemDetailView',
 						type: 'buildingMarket',
-						description: 'Increase your tax paying population with this house.',
+						description: 'Increase your tax paying population with this market.',
 						icon: 'resources/images/ui/toolMarket.png',
 						needs: ['citizen', 'engineer', 'fireman', 'guard', 'road', 'water'],
 						residents: [{type: 'trader', count: 2}]
@@ -316,7 +316,7 @@ exports = [
 					{
 						ctor: 'ItemDetailView',
 						type: 'buildingTemple',
-						description: 'Keep your religious people happy with this temple.',
+						description: 'A temple where your people can worship the gods of construction.',
 						icon: 'resources/images/ui/toolTemple.png',
 						needs: ['engineer', 'fireman', 'guard', 'road', 'trader']
 					}
