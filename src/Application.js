@@ -57,6 +57,7 @@ exports = Class(GC.Application, function (supr) {
 			keyListenerEnabled: false,
 			logsEnabled: true,
 			noTimestep: false,
+			noReflow: true,
 			showFPS: false,
 			resizeRootView: false,
 			preload: ['resources/images', 'resources/audio']
@@ -141,7 +142,7 @@ exports = Class(GC.Application, function (supr) {
 			superview: this._overlayView,
 			options: [
 				{icon: 'resources/images/ui/toolPan.png', cb: bind(this, 'onStats'), text: true},
-				{icon: 'resources/images/ui/toolMap.png', cb: bind(this, 'onMessages')},
+				{icon: 'resources/images/ui/toolMessage.png', cb: bind(this, 'onMessages')},
 				false,
 				{icon: 'resources/images/ui/iconMenu.png', cb: bind(this, 'onMainMenu')}
 			],

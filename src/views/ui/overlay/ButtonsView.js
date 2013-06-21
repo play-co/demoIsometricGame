@@ -23,8 +23,8 @@ var ImageButtonView = Class(ImageView, function (supr) {
 
 		this._imageView = new ImageView({
 			superview: this,
-			x: 10 + this._x,
-			y: 8,
+			x: 20 + this._x,
+			y: 12,
 			width: this.style.width - 25,
 			height: this.style.height - 25,
 			image: opts.icon

@@ -154,12 +154,10 @@ exports = Class(PathWalkerModel, function (supr) {
 		this._zIndex = 0;
 
 		if (this._checkZX && (opts.x < 0.55)) {
-			this._zIndex = 100;
-			//console.log('zx', opts.zIndex);
+			this._zIndex = 50;
 		}
 		if (this._checkZY && (opts.y > 0.45)) {
-			this._zIndex = 100;
-			//console.log('zy', opts.zIndex);
+			this._zIndex = 50;
 		}
 
 		this._walkDT -= dt;

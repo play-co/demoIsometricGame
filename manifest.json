@@ -12,10 +12,6 @@
 	],
 	"description": "",
 	"icon": "resources/icons/icon512.png",
-	"splash": {
-		"autoHide": true,
-		"universal": "resources/splash/splashLoading.png"
-	},
 	"android": {
 		"versionCode": 1,
 		"icons": {
@@ -33,5 +29,5 @@
 			"renderGloss": true
 		}
 	},
-	"sdkVersion": "release-0.1.21"
+	"sdkVersion": "release-0.1.22"
 }

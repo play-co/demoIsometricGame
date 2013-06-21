@@ -3,7 +3,6 @@ import animate;
 import ui.View as View;
 import ui.ImageView as ImageView;
 import ui.ScrollView as ScrollView;
-import ui.ImageScaleView as ImageScaleView;
 import ui.TextView as TextView;
 
 import src.constants.gameConstants as gameConstants;
@@ -37,22 +36,22 @@ exports = Class(TextDialogView, function (supr) {
 		var missions = [
 				{
 					description: 'Build a town with ' + gameConstants.missionResisents + ' residents',
-					color: '#DD0000',
+					image: 'resources/images/ui/missionPop.png',
 					mission: GameModel.missions.RESIDENTS
 				},
 				{
 					description: 'Build a town with ' + gameConstants.missionHouses + ' houses',
-					color: '#00CC00',
+					image: 'resources/images/ui/missionHouse.png',
 					mission: GameModel.missions.HOUSES
 				},				
 				{
 					description: 'Make money, ' + gameConstants.missionMoney + ' credits',
-					color: '#FFDD00',
+					image: 'resources/images/ui/missionCoin.png',
 					mission: GameModel.missions.MONEY
 				},
 				{
 					description: 'Freestyle building',
-					color: '#0000DD',
+					image: 'resources/images/ui/missionFree.png',
 					mission: GameModel.missions.FREESTYLE
 				}				
 			];
@@ -60,12 +59,25 @@ exports = Class(TextDialogView, function (supr) {
 		var i = 0;
 		for (var y = 0; y < 2; y++) {
 			for (var x = 0; x < 2; x++) {
+				new ImageView({
+					superview: this._dialogView,
+					x: 30 + x * 340,
+					y: 112 + y * 180,
+					width: 330,
+					height: 170,
+					image: missions[i].image,
+					scaleMethod: '9slice',
+					sourceSlices: {
+						horizontal: {left: 30, center: 10, right: 30},
+						vertical: {top: 30, middle: 10, bottom: 30}
+					}
+				}).on('InputSelect', bind(this, 'onSelectMission', missions[i].mission));
 				new TextView({
 					superview: this._dialogView,
-					x: 32 + x * 340,
-					y: 114 + y * 180,
-					width: 326,
-					height: 166,
+					x: 42 + x * 340,
+					y: 124 + y * 180,
+					width: 306,
+					height: 146,
 					autoSize: false,
 					autoFontSize: false,
 					wrap: true,
@@ -73,25 +85,10 @@ exports = Class(TextDialogView, function (supr) {
 					size: 36,
 					fontFamily: 'Adonais',
 					strokeColor: '#FFFFFF',
-					strokeWidth: 8,
-					backgroundColor: missions[i].color,
+					strokeWidth: 6,
 					text: missions[i].description,
-					padding: 0
-				}).on('InputSelect', bind(this, 'onSelectMission', missions[i].mission));
-
-				new ImageScaleView({
-					superview: this._dialogView,
-					x: 30 + x * 340,
-					y: 112 + y * 180,
-					width: 330,
-					height: 170,
-					image: 'resources/images/ui/contentBorder.png',
-					blockEvents: true,
-					scaleMethod: '9slice',
-					sourceSlices: {
-						horizontal: {left: 30, center: 10, right: 30},
-						vertical: {top: 30, middle: 10, bottom: 30}
-					}
+					padding: 0,
+					blockEvents: true
 				});
 				i++;
 			}
