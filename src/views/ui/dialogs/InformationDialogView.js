@@ -442,7 +442,7 @@ var ItemsView = Class(ScrollView, function (supr) {
 
 		animate(this).
 			then({x: this.style.width}, 300).
-			then(bind(this, function () { this.style.width = false; }));
+			then(bind(this, function () { this.style.visible = false; }));
 
 		parentItems.update();
 		parentItems.style.x = -this.style.width;
@@ -454,7 +454,7 @@ var ItemsView = Class(ScrollView, function (supr) {
 	this.onShowItems = function (item) {
 		animate(this).
 			then({x: -this.style.width}, 300).
-			then(bind(this, function () { this.style.width = false; }));
+			then(bind(this, function () { this.style.visible = false; }));
 
 		item.view.update();
 		item.view.style.x = this.style.width;
@@ -584,13 +584,21 @@ exports = Class(TextDialogView, function (supr) {
 
 	this.showBackButton = function () {
 		var titleSubviews = this._dialogView.title.getSubviews();
-		titleSubviews[1] && titleSubviews[1].style.visible = true;
-		titleSubviews[2] && titleSubviews[2].style.visible = false;
+		if (titleSubviews[1]) {
+			titleSubviews[1].style.visible = true;
+		}
+		if (titleSubviews[2]) {
+			titleSubviews[2].style.visible = false;
+		}
 	};
 
 	this.showCloseButton = function () {
 		var titleSubviews = this._dialogView.title.getSubviews();
-		titleSubviews[1] && titleSubviews[1].style.visible = false;
-		titleSubviews[2] && titleSubviews[2].style.visible = true;
+		if (titleSubviews[1]) {
+			titleSubviews[1].style.visible = false;
+		}
+		if (titleSubviews[2]) {
+			titleSubviews[2].style.visible = true;
+		}
 	};
 });
