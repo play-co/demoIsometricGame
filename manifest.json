@@ -10,6 +10,10 @@
 	"supportedOrientations": [
 		"landscape"
 	],
+	"splash": {
+		"autoHide": true,
+		"universal": "resources/splash/splashLoading.png"
+	},
 	"description": "",
 	"icon": "resources/icons/icon512.png",
 	"android": {
@@ -29,5 +33,5 @@
 			"renderGloss": true
 		}
 	},
-	"sdkVersion": "release-0.1.22"
+	"sdkVersion": "release-0.1.23"
 }
