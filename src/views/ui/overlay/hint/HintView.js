@@ -7,7 +7,7 @@ import ui.TextView as TextView;
 import ui.widget.ListView as ListView;
 import ui.widget.CellView as CellView;
 
-import GCDataSource;
+import squill.models.DataSource as GCDataSource;
 
 import ..MiniButtonView;
 import .hintTexts;
