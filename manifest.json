@@ -1,6 +1,6 @@
 {
 	"appID": "361ba0403cd14216939ee847bc8baa8b",
-	"shortName": "demoTileGame",
+	"shortName": "demoIsometricGame",
 	"title": "demo isometric",
 	"studio": {
 		"name": "Game Closure",
@@ -10,6 +10,10 @@
 	"supportedOrientations": [
 		"landscape"
 	],
+	"dependencies": {
+		"devkit-menus": "https://github.com/gameclosure/menus#v2.0.0",
+		"devkit-isometric": "https://github.com/gameclosure/isometric#v2.0.0"
+	},
 	"splash": {
 		"autoHide": true,
 		"universal": "resources/splash/splashLoading.png"
